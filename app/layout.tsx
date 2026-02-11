@@ -7,7 +7,7 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body className="cinematic-bars bg-black text-white overflow-x-hidden">
+      <body className="bg-black text-white cinematic-bars overflow-x-hidden">
         {children}
       </body>
     </html>
