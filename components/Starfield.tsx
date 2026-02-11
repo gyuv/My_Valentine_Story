@@ -1,22 +1,15 @@
-import { EffectComposer, Bloom } from "@react-three/postprocessing";
+"use client";
+import { Canvas } from "@react-three/fiber";
 import { Stars } from "@react-three/drei";
+import Infinity3D from "./Infinity3D";
 
-<Canvas camera={{ position: [0, 0, 20], fov: 60 }}>
-  <ambientLight intensity={0.5} />
-  <pointLight position={[10, 10, 10]} intensity={2} />
-
-  <Stars radius={200} depth={80} count={7000} factor={6} fade />
-
-  <Infinity3D />
-  <TempleScene3D />
-  <GalaxyWarp />
-  <MouseParticles />
-
-  <EffectComposer>
-    <Bloom
-      intensity={1.8}
-      luminanceThreshold={0.2}
-      luminanceSmoothing={0.9}
-    />
-  </EffectComposer>
-</Canvas>
+export default function Starfield() {
+  return (
+    <div className="fixed top-0 left-0 w-full h-full -z-10">
+      <Canvas camera={{ position: [0,0,20] }}>
+        <Stars radius={100} depth={50} count={5000} factor={4} fade />
+        <Infinity3D />
+      </Canvas>
+    </div>
+  );
+}
