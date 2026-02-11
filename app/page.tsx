@@ -1,26 +1,12 @@
-import PasswordGate from "@/components/PasswordGate";
-import DolbyIntro from "@/components/DolbyIntro";
-import MusicPlayer from "@/components/MusicPlayer";
-import SoundFX from "@/components/SoundFX";
-import Starfield from "@/components/Starfield";
-import CinematicSections from "@/components/CinematicSections";
-import RainLightning from "@/components/RainLightning";
-import DroneTemple from "@/components/DroneTemple";
-import KnotAnimation from "@/components/KnotAnimation";
-import Ending from "@/components/Ending";
+import PasswordGate from "../components/PasswordGate";
+import MusicPlayer from "../components/MusicPlayer";
+import CinematicSections from "../components/CinematicSections";
 
 export default function Page() {
   return (
     <PasswordGate>
-      <DolbyIntro />
       <MusicPlayer />
-      <SoundFX />
-      <Starfield />
       <CinematicSections />
-      <RainLightning />
-      <DroneTemple />
-      <KnotAnimation />
-      <Ending />
     </PasswordGate>
   );
 }
