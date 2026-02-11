@@ -1,5 +1,4 @@
 "use client";
-
 import { useEffect } from "react";
 
 export default function MusicPlayer() {
@@ -9,6 +8,5 @@ export default function MusicPlayer() {
     audio.volume = 0.4;
     audio.play().catch(()=>{});
   }, []);
-
   return null;
 }
