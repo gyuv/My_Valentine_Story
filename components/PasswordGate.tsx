@@ -1,27 +1,48 @@
 "use client";
+
 import { useState } from "react";
 
-export default function PasswordGate({ children }: any) {
+export default function PasswordGate({
+  children
+}: {
+  children: React.ReactNode;
+}) {
   const [entered, setEntered] = useState(false);
-  const [input, setInput] = useState("");
+  const [password, setPassword] = useState("");
 
-  if (entered) return children;
+  const checkPassword = () => {
+    if (password === "kuttu") {
+      setEntered(true);
+    } else {
+      alert("Wrong password ❤️");
+    }
+  };
 
-  return (
-    <div className="h-screen flex flex-col items-center justify-center bg-black text-white">
-      <h1 className="text-3xl mb-6">Enter Password</h1>
-      <input
-        type="password"
-        value={input}
-        onChange={(e) => setInput(e.target.value)}
-        className="p-3 text-black"
-      />
-      <button
-        onClick={() => input === "kuttu" && setEntered(true)}
-        className="mt-4 px-6 py-2 bg-pink-600"
-      >
-        Enter
-      </button>
-    </div>
-  );
+  if (!entered) {
+    return (
+      <div style={{
+        height: "100vh",
+        display: "flex",
+        justifyContent: "center",
+        alignItems: "center",
+        flexDirection: "column"
+      }}>
+        <h2>Enter Password</h2>
+        <input
+          type="password"
+          value={password}
+          onChange={(e) => setPassword(e.target.value)}
+          style={{ padding: "10px", marginTop: "10px" }}
+        />
+        <button
+          onClick={checkPassword}
+          style={{ marginTop: "10px", padding: "10px 20px" }}
+        >
+          Enter
+        </button>
+      </div>
+    );
+  }
+
+  return <>{children}</>;
 }
