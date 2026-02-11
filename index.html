@@ -1,76 +1,195 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Our Infinity | Yuvaraj & Ramya</title>
-    <link rel="stylesheet" href="style.css">
-    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&family=Playfair+Display:ital,wght@0,400;1,700&family=Poppins:wght@300;400&display=swap" rel="stylesheet">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Infinity - Our Love Story</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Poppins:wght@300;500&display=swap" rel="stylesheet">
+
+<style>
+body {
+    margin:0;
+    font-family: 'Poppins', sans-serif;
+    background: linear-gradient(to bottom, #0f0c29, #302b63, #24243e);
+    color:white;
+    overflow-x:hidden;
+}
+section {
+    padding:80px 20px;
+    text-align:center;
+}
+h1,h2 {
+    font-family: 'Playfair Display', serif;
+}
+.hero {
+    height:100vh;
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
+    align-items:center;
+}
+.hero h1 {
+    font-size:3rem;
+    animation: fadeIn 3s ease-in-out;
+}
+.hero p {
+    opacity:0.8;
+}
+.btn {
+    padding:12px 25px;
+    background:#ff4e88;
+    border:none;
+    color:white;
+    cursor:pointer;
+    border-radius:25px;
+    margin-top:20px;
+    transition:0.3s;
+}
+.btn:hover {
+    background:#ff1e6a;
+    transform:scale(1.05);
+}
+.timeline-item {
+    margin:40px 0;
+    opacity:0;
+    transform:translateY(50px);
+    transition:1s;
+}
+.timeline-item.show {
+    opacity:1;
+    transform:translateY(0);
+}
+.card-container {
+    display:flex;
+    flex-wrap:wrap;
+    justify-content:center;
+    gap:20px;
+}
+.card {
+    background:rgba(255,255,255,0.1);
+    padding:20px;
+    border-radius:15px;
+    width:250px;
+    transition:0.4s;
+}
+.card:hover {
+    transform:scale(1.1);
+    background:rgba(255,255,255,0.2);
+}
+.quiz button {
+    margin:10px;
+}
+.hidden {
+    display:none;
+}
+footer {
+    padding:40px;
+    background:black;
+}
+@keyframes fadeIn {
+    from {opacity:0; transform:translateY(30px);}
+    to {opacity:1; transform:translateY(0);}
+}
+</style>
 </head>
+
 <body>
 
-    <section class="hero">
-        <div class="hero-content">
-            <h1>The Day I Went for Biriyani...</h1>
-            <h2>& Found My Destiny</h2>
-            <p>A Love Story of Yuvaraj & Ramya</p>
-            <div class="scroll-indicator">Scroll to begin</div>
-        </div>
-    </section>
+<!-- HERO -->
+<section class="hero">
+    <h1>From Biriyani to Forever ❤️</h1>
+    <p>Our Story. Our Infinity. Our Destiny.</p>
+    <button class="btn" onclick="scrollToSection('story')">Begin Our Journey</button>
+</section>
 
-    <section class="story-segment">
-        <div class="content">
-            <span class="date">15th August 2021</span>
-            <p>Independence Day for the country. But for me — it was the day my heart surrendered.</p>
-            <p>My only serious intention was simple: <strong>“Today, I am going to eat Muslim wedding biriyani.”</strong></p>
-            <img src="biriyani_day.jpg" alt="The Wedding Day" class="story-img">
-        </div>
-    </section>
+<!-- STORY -->
+<section id="story">
+    <h2>Chapter 1: The Wedding</h2>
+    <p>15-08-2021. I came for biriyani. But destiny had other plans...</p>
+    
+    <div class="timeline-item">You walked up to me and asked, "Anna enga tattoo potinga?"</div>
+    <div class="timeline-item">Infinity tattoo. A small word. A big future.</div>
+    <div class="timeline-item">Instagram messages turned into late-night calls.</div>
+    <div class="timeline-item">Secret meetings. Side gaps. Heartbeats racing.</div>
+    <div class="timeline-item">We fought. We cried. We chose each other.</div>
+    <div class="timeline-item">29-08-2026 | 7:00 AM | Vadapalani Murugan Temple.</div>
+    <div class="timeline-item">From strangers to husband & wife.</div>
+</section>
 
-    <section class="story-segment alt">
-        <div class="content">
-            <h3>“Anna, enga tattoo potinga?”</h3>
-            <p>That one simple question about an infinity tattoo. I didn’t realize it was the prologue to my forever.</p>
-            <img src="tattoo_moment.jpg" alt="First Meeting" class="story-img">
+<!-- HONEYMOON -->
+<section>
+    <h2>Our Love Around The World 🌍</h2>
+    <div class="card-container">
+        <div class="card">
+            <h3>Malaysia</h3>
+            <p>Our first steps into married life.</p>
         </div>
-    </section>
-
-    <section class="story-segment">
-        <div class="content">
-            <h3>The Secret Chapters</h3>
-            <p>Video calls that lasted late into the night... those "side gap" moments at college. We were fighting for each other.</p>
-            <img src="secret_moments.jpg" alt="Our Secret Love" class="story-img">
+        <div class="card">
+            <h3>Bali</h3>
+            <p>Sunsets that watched us fall deeper in love.</p>
         </div>
-    </section>
-
-    <section class="story-segment sacred">
-        <div class="content">
-            <span class="date">29th August 2026 | 7:00 A.M.</span>
-            <h3>Vadapalani Murugan Temple</h3>
-            <p>When I tied the knot around your neck, time paused. We didn't just marry. We won.</p>
-            <img src="wedding.jpg" alt="The Sacred Morning" class="story-img">
+        <div class="card">
+            <h3>Nusa Penida</h3>
+            <p>Where the ocean witnessed our forever.</p>
         </div>
-    </section>
+    </div>
+</section>
 
-    <section class="story-segment">
-        <div class="content">
-            <h3>Our World Beyond “I Do”</h3>
-            <p>Malaysia. Bali. Nusa Penida. Seeing you smile freely—no fear, no hiding.</p>
-            <div class="image-grid">
-                <img src="bali1.jpg" alt="Travels" class="grid-img">
-                <img src="bali2.jpg" alt="Travels" class="grid-img">
-            </div>
-        </div>
-    </section>
+<!-- QUIZ -->
+<section class="quiz">
+    <h2>Ramya’s Love Quiz 💕</h2>
+    <p>Where did our love story begin?</p>
+    <button class="btn" onclick="checkAnswer(true)">Zubaida Wedding</button>
+    <button class="btn" onclick="checkAnswer(false)">College Canteen</button>
+    <button class="btn" onclick="checkAnswer(false)">Instagram Only</button>
+    <p id="quiz-result"></p>
+</section>
 
-    <section class="final-letter">
-        <div class="letter-box">
-            <p>Ramya, you are the permanent mark on my soul.</p>
-            <h2>Happy Valentine’s Day, my Infinity. ❤️</h2>
-            <p class="signature">- Yuvaraj</p>
-        </div>
-    </section>
+<!-- FINAL SURPRISE -->
+<section>
+    <h2>One Last Thing...</h2>
+    <button class="btn" onclick="revealLetter()">Click For A Surprise 💌</button>
+    <p id="love-letter" class="hidden">
+        Ramya,<br><br>
+        If I had to relive my life again, I would still attend that wedding for biriyani... 
+        because that’s where I unknowingly met my forever.  
+        You are my infinity — not ink on skin, but promise in heart.  
+        Happy Valentine’s Day, my wife. ❤️
+    </p>
+</section>
 
-    <script src="script.js"></script>
+<footer>
+    Made with ❤️ by Yuvaraj for Ramya
+</footer>
+
+<script>
+function scrollToSection(id){
+    document.getElementById(id).scrollIntoView({behavior:"smooth"});
+}
+
+const items = document.querySelectorAll('.timeline-item');
+window.addEventListener('scroll', () => {
+    items.forEach(item => {
+        const position = item.getBoundingClientRect().top;
+        if(position < window.innerHeight - 100){
+            item.classList.add('show');
+        }
+    });
+});
+
+function checkAnswer(correct){
+    const result = document.getElementById("quiz-result");
+    if(correct){
+        result.innerHTML = "Correct ❤️ That’s where destiny began!";
+    } else {
+        result.innerHTML = "Oops 😜 Try again, Mrs. Yuvaraj!";
+    }
+}
+
+function revealLetter(){
+    document.getElementById("love-letter").classList.remove("hidden");
+}
+</script>
+
 </body>
 </html>
