@@ -11,11 +11,10 @@ export default function DolbyIntro() {
   if (!show) return null;
 
   return (
-    <div className="fixed inset-0 flex items-center justify-center bg-black z-[2000]">
-      <div className="text-center animate-pulse">
-        <h1 className="text-5xl tracking-[1em] font-bold">YUVARAJ</h1>
-        <p className="mt-4 text-lg tracking-widest">LOVE CINEMATIC PRESENTS</p>
-      </div>
+    <div className="fixed inset-0 flex items-center justify-center bg-black z-50">
+      <h1 className="text-4xl tracking-[1em] animate-pulse">
+        YUVARAJ PRESENTS
+      </h1>
     </div>
   );
 }
