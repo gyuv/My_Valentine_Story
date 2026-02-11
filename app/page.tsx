@@ -3,9 +3,8 @@ import DolbyIntro from "@/components/DolbyIntro";
 import MusicPlayer from "@/components/MusicPlayer";
 import SoundFX from "@/components/SoundFX";
 import Starfield from "@/components/Starfield";
-import GoldNames from "@/components/GoldNames";
-import RainLightning from "@/components/RainLightning";
 import CinematicSections from "@/components/CinematicSections";
+import RainLightning from "@/components/RainLightning";
 import DroneTemple from "@/components/DroneTemple";
 import KnotAnimation from "@/components/KnotAnimation";
 import Ending from "@/components/Ending";
@@ -17,7 +16,6 @@ export default function Page() {
       <MusicPlayer />
       <SoundFX />
       <Starfield />
-      <GoldNames />
       <CinematicSections />
       <RainLightning />
       <DroneTemple />
