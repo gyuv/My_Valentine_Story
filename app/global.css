@@ -1,0 +1,47 @@
+body {
+  margin: 0;
+  font-family: serif;
+}
+
+/* Cinematic Bars */
+.cinematic-bars::before,
+.cinematic-bars::after {
+  content: "";
+  position: fixed;
+  left: 0;
+  width: 100%;
+  height: 8vh;
+  background: black;
+  z-index: 1000;
+}
+
+.cinematic-bars::before { top: 0; }
+.cinematic-bars::after { bottom: 0; }
+
+/* Rain */
+.rain {
+  background-image: repeating-linear-gradient(
+    to bottom,
+    rgba(255,255,255,0.1) 0px,
+    rgba(255,255,255,0.1) 2px,
+    transparent 2px,
+    transparent 5px
+  );
+  animation: rain 0.3s linear infinite;
+}
+
+@keyframes rain {
+  from { background-position: 0 0; }
+  to { background-position: 0 100%; }
+}
+
+/* Lightning */
+@keyframes lightning {
+  0% { background: black; }
+  2% { background: white; }
+  4% { background: black; }
+}
+
+.storm {
+  animation: lightning 8s infinite;
+}
