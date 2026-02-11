@@ -3,196 +3,253 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Yuvaraj ❤️ Ramya</title>
+<title>Infinity - Yuvaraj ❤️ Ramya</title>
 
-<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;700&family=Poppins:wght@300;400&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;700&family=Poppins:wght@300;400;500&display=swap" rel="stylesheet">
 
 <style>
 *{margin:0;padding:0;box-sizing:border-box}
 body{
     font-family:'Poppins',sans-serif;
-    background:#0b0014;
+    background:#000;
     color:white;
     overflow-x:hidden;
+    scroll-behavior:smooth;
 }
 
-/* PASSWORD SCREEN */
-#lockScreen{
+/* LOCK SCREEN */
+#lock{
     height:100vh;
     display:flex;
-    flex-direction:column;
     justify-content:center;
     align-items:center;
-    background:linear-gradient(135deg,#1a0026,#330033);
+    flex-direction:column;
+    background:radial-gradient(circle,#2a003f,#000);
 }
-input{
-    padding:12px;
-    border:none;
+#lock input{
+    padding:12px 20px;
     border-radius:25px;
-    text-align:center;
+    border:none;
     margin-top:20px;
+    text-align:center;
 }
-button{
+#lock button{
+    margin-top:15px;
     padding:10px 25px;
     border:none;
     border-radius:25px;
     background:#ff2e88;
     color:white;
-    margin-top:15px;
 }
+#main{display:none}
 
-/* MAIN CONTENT */
-#mainContent{display:none;}
-
+/* HERO */
 .hero{
     height:100vh;
     display:flex;
+    flex-direction:column;
     justify-content:center;
     align-items:center;
     text-align:center;
-    flex-direction:column;
-    background:linear-gradient(to bottom,#140021,#000000);
+    background:linear-gradient(to bottom,#0f001a,#000);
 }
 .hero h1{
     font-family:'Playfair Display',serif;
-    font-size:2.5rem;
-    animation:fadeIn 3s ease;
+    font-size:2.8rem;
 }
-.hero p{opacity:.8;margin-top:15px}
+.hero p{opacity:.7;margin-top:10px}
 
-section{
-    padding:80px 20px;
+/* CHAPTER SECTIONS */
+.chapter{
+    min-height:100vh;
+    padding:80px 25px;
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
     text-align:center;
+    transition:background 1.5s ease;
+}
+.chapter h2{
+    font-family:'Playfair Display',serif;
+    margin-bottom:20px;
+    font-size:2rem;
+}
+.chapter p{
+    max-width:800px;
+    margin:10px auto;
+    line-height:1.8;
+    opacity:.9;
 }
 
-.timeline{
-    position:relative;
+/* Dynamic Backgrounds */
+.bg1{background:linear-gradient(180deg,#140021,#000);}
+.bg2{background:linear-gradient(180deg,#1a002f,#220033);}
+.bg3{background:linear-gradient(180deg,#001a2e,#000);}
+.bg4{background:linear-gradient(180deg,#2a0000,#000);}
+.bgTemple{
+    background:radial-gradient(circle at center,#ffcc66 0%,#3a1f00 40%,#000 80%);
 }
-.timeline::before{
-    content:'';
-    position:absolute;
-    left:50%;
-    width:3px;
-    background:#ff2e88;
-    top:0;
-    bottom:0;
+
+/* Temple Glow */
+.temple{
+    font-size:3rem;
+    margin-top:20px;
+    animation:glow 2s infinite alternate;
 }
-.timeline-item{
-    margin:40px 0;
-    position:relative;
-    width:100%;
-    opacity:0;
-    transform:translateY(50px);
-    transition:1s;
-}
-.timeline-item.show{
-    opacity:1;
-    transform:translateY(0);
-}
-.timeline-item div{
-    background:rgba(255,255,255,0.08);
-    padding:20px;
-    border-radius:15px;
+@keyframes glow{
+    from{text-shadow:0 0 10px gold}
+    to{text-shadow:0 0 30px orange}
 }
 
 /* GALLERY */
-.slider{
+.gallery{
+    overflow:hidden;
     position:relative;
-    max-width:300px;
-    margin:auto;
 }
-.slider img{
-    width:100%;
-    border-radius:15px;
-    display:none;
+.gallery-track{
+    display:flex;
+    transition:transform 1s ease;
 }
-.slider img.active{display:block}
+.gallery img{
+    width:100vw;
+    height:60vh;
+    object-fit:cover;
+}
 
-/* HEARTS */
+/* Countdown */
+.countdown{
+    font-size:1.3rem;
+    margin-top:20px;
+}
+
+/* Floating hearts */
 .heart{
     position:fixed;
     bottom:-20px;
+    font-size:20px;
     color:#ff2e88;
-    animation:floatUp 6s linear infinite;
+    animation:float 6s linear infinite;
 }
-
-/* PROPOSAL ANIMATION */
-#proposal{
-    font-size:1.5rem;
-    min-height:100px;
-}
-
-@keyframes floatUp{
+@keyframes float{
     0%{transform:translateY(0);opacity:1}
     100%{transform:translateY(-100vh);opacity:0}
 }
 
-@keyframes fadeIn{
-    from{opacity:0}
-    to{opacity:1}
+/* Action block */
+.action-block{
+    padding:60px 20px;
+    text-align:center;
+    background:#111;
+    transform:scale(.9);
+    opacity:0;
+    transition:1s;
+}
+.action-block.show{
+    transform:scale(1);
+    opacity:1;
 }
 
 footer{
     padding:40px;
-    text-align:center;
     background:#000;
+    text-align:center;
 }
 </style>
 </head>
 
 <body>
 
-<!-- PASSWORD SCREEN -->
-<div id="lockScreen">
-    <h2>Enter The Secret Word ❤️</h2>
-    <input type="password" id="password" placeholder="Hint: what you call her">
-    <button onclick="unlock()">Enter</button>
+<div id="lock">
+    <h2>Enter Our Secret Word ❤️</h2>
+    <input type="password" id="pass" placeholder="Hint: what you call her">
+    <button onclick="openSite()">Enter</button>
     <p id="error"></p>
 </div>
 
-<!-- MAIN WEBSITE -->
-<div id="mainContent">
+<div id="main">
 
-<audio id="bgMusic" autoplay loop>
-    <source src="music.mp3" type="audio/mpeg">
+<audio id="music" autoplay loop>
+<source src="music.mp3" type="audio/mpeg">
 </audio>
 
-<div class="hero">
+<section class="hero">
     <h1>From Biriyani To Forever</h1>
-    <p>Our Journey. Our Destiny. Our Infinity.</p>
+    <p>A journey written before we knew it</p>
+</section>
+
+<!-- CHAPTERS -->
+
+<section class="chapter bg1">
+<h2>15-08-2021 — Zubaida’s Wedding</h2>
+<p>I came for biriyani. That was my only mission.</p>
+<p>But destiny had prepared something far more powerful.</p>
+<p>You walked toward me and asked — “Anna, enga tattoo potinga?”</p>
+<p>Infinity tattoo. A small word. A lifetime meaning.</p>
+</section>
+
+<section class="chapter bg2">
+<h2>The Secret Chapters</h2>
+<p>Instagram messages turned into late night calls.</p>
+<p>Side gap meetings while picking up my sister.</p>
+<p>Video calls. Audio whispers. Racing heartbeats.</p>
+<p>We loved quietly. But deeply.</p>
+</section>
+
+<section class="chapter bg3">
+<h2>When Love Was Tested</h2>
+<p>Fear. Family pressure. Tears.</p>
+<p>But we didn’t fight each other.</p>
+<p>We fought for each other.</p>
+<p>And we never let go.</p>
+</section>
+
+<section class="chapter bgTemple">
+<h2>29-08-2026 | 7:00 AM</h2>
+<p>Vadapalani Murugan Temple</p>
+<div class="temple">🛕</div>
+<p>I tied the knot.</p>
+<p>You became my forever.</p>
+</section>
+
+<section class="chapter bg4">
+<h2>Our Love Around The World</h2>
+<p>Malaysia. Bali. Nusa Penida.</p>
+<p>From secret love… to open skies.</p>
+</section>
+
+<!-- GALLERY -->
+<section class="gallery">
+<div class="gallery-track" id="galleryTrack">
+    <!-- ADD UP TO 20+ IMAGES -->
+    <img src="photo1.jpg">
+    <img src="photo2.jpg">
+    <img src="photo3.jpg">
+    <img src="photo4.jpg">
+    <img src="photo5.jpg">
+    <img src="photo6.jpg">
+    <img src="photo7.jpg">
+    <img src="photo8.jpg">
+    <img src="photo9.jpg">
+    <img src="photo10.jpg">
+</div>
+</section>
+
+<!-- COUNTDOWN -->
+<section class="chapter bg1">
+<h2>Next Anniversary Countdown</h2>
+<div class="countdown" id="countdown"></div>
+<p>I still don’t know what to do for next anniversary 😄</p>
+</section>
+
+<div class="action-block" id="actionBlock">
+<h2>Ramya...</h2>
+<p>If I had to relive life again, I would still go for that biriyani.</p>
+<p>Because that’s where I unknowingly met my wife.</p>
+<p>You are my infinity.</p>
 </div>
 
-<section>
-    <h2>Our Timeline</h2>
-    <div class="timeline">
-        <div class="timeline-item"><div>15-08-2021 — I came for biriyani at Zubaida’s wedding.</div></div>
-        <div class="timeline-item"><div>You walked to me and asked, “Anna, enga tattoo potinga?”</div></div>
-        <div class="timeline-item"><div>Infinity tattoo conversation… destiny quietly smiled.</div></div>
-        <div class="timeline-item"><div>Instagram messages became late night calls.</div></div>
-        <div class="timeline-item"><div>Side gap meetings. Secret smiles. Racing heartbeats.</div></div>
-        <div class="timeline-item"><div>We fought for our love against fear and family pressure.</div></div>
-        <div class="timeline-item"><div>29-08-2026 | 7:00 AM | Vadapalani Murugan Temple.</div></div>
-        <div class="timeline-item"><div>I tied the knot. You became my forever.</div></div>
-        <div class="timeline-item"><div>Malaysia. Bali. Nusa Penida. Our love travelled the world.</div></div>
-    </div>
-</section>
-
-<section>
-    <h2>Our Beautiful Memories</h2>
-    <div class="slider">
-        <img src="photo1.jpg" class="active">
-        <img src="photo2.jpg">
-        <img src="photo3.jpg">
-    </div>
-</section>
-
-<section>
-    <h2>The Proposal Re-Enactment</h2>
-    <div id="proposal"></div>
-</section>
-
 <footer>
-Made with ❤️ by Yuvaraj for Ramya
+Made with ❤️ by Yuvaraj
 </footer>
 
 </div>
@@ -200,59 +257,53 @@ Made with ❤️ by Yuvaraj for Ramya
 <script>
 
 /* PASSWORD */
-function unlock(){
-    const pass=document.getElementById("password").value;
-    if(pass==="kuttu"){
-        document.getElementById("lockScreen").style.display="none";
-        document.getElementById("mainContent").style.display="block";
-        document.getElementById("bgMusic").play();
+function openSite(){
+    if(document.getElementById("pass").value==="kuttu"){
+        document.getElementById("lock").style.display="none";
+        document.getElementById("main").style.display="block";
+        document.getElementById("music").play();
     }else{
-        document.getElementById("error").innerText="Wrong password ❤️ Try again";
+        document.getElementById("error").innerText="Wrong password ❤️";
     }
 }
 
-/* TIMELINE ANIMATION */
-const items=document.querySelectorAll('.timeline-item');
-window.addEventListener('scroll',()=>{
-    items.forEach(item=>{
-        const pos=item.getBoundingClientRect().top;
-        if(pos<window.innerHeight-100){
-            item.classList.add('show');
-        }
-    })
-});
-
-/* PHOTO SLIDER */
-let slides=document.querySelectorAll('.slider img');
-let current=0;
+/* HEARTS */
 setInterval(()=>{
-    slides[current].classList.remove('active');
-    current=(current+1)%slides.length;
-    slides[current].classList.add('active');
+let h=document.createElement("div");
+h.className="heart";
+h.innerHTML="❤";
+h.style.left=Math.random()*100+"vw";
+h.style.fontSize=Math.random()*20+15+"px";
+document.body.appendChild(h);
+setTimeout(()=>h.remove(),6000);
+},800);
+
+/* GALLERY AUTO SLIDE */
+const track=document.getElementById("galleryTrack");
+const slides=track.children;
+let index=0;
+setInterval(()=>{
+    index=(index+1)%slides.length;
+    track.style.transform="translateX(-"+index*100+"vw)";
 },3000);
 
-/* FLOATING HEARTS */
+/* COUNTDOWN */
+const anniversary=new Date("Aug 29, 2026 07:00:00").getTime();
 setInterval(()=>{
-    let heart=document.createElement("div");
-    heart.className="heart";
-    heart.style.left=Math.random()*100+"vw";
-    heart.innerHTML="❤";
-    heart.style.fontSize=Math.random()*20+10+"px";
-    document.body.appendChild(heart);
-    setTimeout(()=>heart.remove(),6000);
-},500);
+let now=new Date().getTime();
+let diff=anniversary-now;
+if(diff<0) diff+=365*24*60*60*1000;
+let days=Math.floor(diff/(1000*60*60*24));
+document.getElementById("countdown").innerHTML=days+" days to go ❤️";
+},1000);
 
-/* PROPOSAL ANIMATION */
-const proposalText="Ramya… from that infinity tattoo moment… to standing beside you at Vadapalani Murugan Temple… I choose you. Again. And again. Forever.";
-let i=0;
-function typeWriter(){
-    if(i<proposalText.length){
-        document.getElementById("proposal").innerHTML+=proposalText.charAt(i);
-        i++;
-        setTimeout(typeWriter,50);
-    }
+/* ACTION BLOCK */
+window.addEventListener("scroll",()=>{
+let block=document.getElementById("actionBlock");
+if(block.getBoundingClientRect().top<window.innerHeight-100){
+block.classList.add("show");
 }
-typeWriter();
+});
 
 </script>
 
