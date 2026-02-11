@@ -1,15 +1,18 @@
 import "./globals.css";
 
+export const metadata = {
+  title: "Our Love Story",
+  description: "For Ramya ❤️"
+};
+
 export default function RootLayout({
-  children,
+  children
 }: {
   children: React.ReactNode;
 }) {
   return (
     <html lang="en">
-      <body className="bg-black text-white cinematic-bars overflow-x-hidden">
-        {children}
-      </body>
+      <body>{children}</body>
     </html>
   );
 }
